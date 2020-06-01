@@ -1,0 +1,9 @@
+C:\Users\Admin\OneDrive\Máy tính\DoAnWindow\DoanWindow\DoanWindow\obj\Debug\DoanWindow.csprojAssemblyReference.cache
+C:\Users\Admin\OneDrive\Máy tính\DoAnWindow\DoanWindow\DoanWindow\obj\Debug\DoanWindow.Properties.Resources.resources
+C:\Users\Admin\OneDrive\Máy tính\DoAnWindow\DoanWindow\DoanWindow\obj\Debug\DoanWindow.csproj.GenerateResource.cache
+C:\Users\Admin\OneDrive\Máy tính\DoAnWindow\DoanWindow\DoanWindow\obj\Debug\DoanWindow.csproj.CoreCompileInputs.cache
+C:\Users\Admin\OneDrive\Máy tính\DoAnWindow\DoanWindow\DoanWindow\bin\Debug\DoanWindow.exe.config
+C:\Users\Admin\OneDrive\Máy tính\DoAnWindow\DoanWindow\DoanWindow\bin\Debug\DoanWindow.exe
+C:\Users\Admin\OneDrive\Máy tính\DoAnWindow\DoanWindow\DoanWindow\bin\Debug\DoanWindow.pdb
+C:\Users\Admin\OneDrive\Máy tính\DoAnWindow\DoanWindow\DoanWindow\obj\Debug\DoanWindow.exe
+C:\Users\Admin\OneDrive\Máy tính\DoAnWindow\DoanWindow\DoanWindow\obj\Debug\DoanWindow.pdb
