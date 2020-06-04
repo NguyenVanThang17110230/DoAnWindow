@@ -7,3 +7,13 @@ C:\Users\Admin\OneDrive\Máy tính\DoAnWindow\DoanWindow\DoanWindow\bin\Debug\Do
 C:\Users\Admin\OneDrive\Máy tính\DoAnWindow\DoanWindow\DoanWindow\bin\Debug\DoanWindow.pdb
 C:\Users\Admin\OneDrive\Máy tính\DoAnWindow\DoanWindow\DoanWindow\obj\Debug\DoanWindow.exe
 C:\Users\Admin\OneDrive\Máy tính\DoAnWindow\DoanWindow\DoanWindow\obj\Debug\DoanWindow.pdb
+D:\(4) GitHub\DoAnWindow\DoanWindow\DoanWindow\bin\Debug\DoanWindow.exe.config
+D:\(4) GitHub\DoAnWindow\DoanWindow\DoanWindow\bin\Debug\DoanWindow.exe
+D:\(4) GitHub\DoAnWindow\DoanWindow\DoanWindow\bin\Debug\DoanWindow.pdb
+D:\(4) GitHub\DoAnWindow\DoanWindow\DoanWindow\obj\Debug\DoanWindow.csprojAssemblyReference.cache
+D:\(4) GitHub\DoAnWindow\DoanWindow\DoanWindow\obj\Debug\DoanWindow.Properties.Resources.resources
+D:\(4) GitHub\DoAnWindow\DoanWindow\DoanWindow\obj\Debug\DoanWindow.csproj.GenerateResource.cache
+D:\(4) GitHub\DoAnWindow\DoanWindow\DoanWindow\obj\Debug\DoanWindow.csproj.CoreCompileInputs.cache
+D:\(4) GitHub\DoAnWindow\DoanWindow\DoanWindow\obj\Debug\DoanWindow.exe
+D:\(4) GitHub\DoAnWindow\DoanWindow\DoanWindow\obj\Debug\DoanWindow.pdb
+D:\(4) GitHub\DoAnWindow\DoanWindow\DoanWindow\obj\Debug\DoanWindow.frmDeTai.resources

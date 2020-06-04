@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace DoanWindow
 {
-    public partial class Form1 : Form
+    public partial class frmGiangVien : Form
     {
-        public Form1()
+        public frmGiangVien()
         {
             InitializeComponent();
         }
