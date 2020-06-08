@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="bcfd0768c5114052971161e16225cf28" Name="Diagram1">
+        <EntityTypeShape EntityType="QuanlidoansinhvienModel.BaoCao" Width="1.5" PointX="7.5" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanlidoansinhvienModel.DeTai" Width="1.5" PointX="5.25" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanlidoansinhvienModel.GiaoVien" Width="1.5" PointX="3" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanlidoansinhvienModel.HeDaoTao" Width="1.5" PointX="6" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanlidoansinhvienModel.Khoa" Width="1.5" PointX="0.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanlidoansinhvienModel.LoaiDeTai" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanlidoansinhvienModel.Login" Width="1.5" PointX="0.875" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanlidoansinhvienModel.Lop" Width="1.5" PointX="8.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanlidoansinhvienModel.SinhVien" Width="1.5" PointX="10.5" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanlidoansinhvienModel.sysdiagram" Width="1.5" PointX="2.875" PointY="8.125" IsExpanded="true" />
+        <AssociationConnector Association="QuanlidoansinhvienModel.FK_BaoCao_DeTai" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanlidoansinhvienModel.FK_DeTai_GiaoVien" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanlidoansinhvienModel.FK_DeTai_LoaiDeTai" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanlidoansinhvienModel.FK_SinhVien_DeTai" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanlidoansinhvienModel.FK_GiaoVien_Khoa" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanlidoansinhvienModel.FK_Lop_HeDaoTao" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanlidoansinhvienModel.FK_SinhVien_Khoa" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanlidoansinhvienModel.FK_SinhVien_Lop" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

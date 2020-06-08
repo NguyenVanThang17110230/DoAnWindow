@@ -33,8 +33,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,33 +55,78 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmBaoCao.cs">
+    <Compile Include="Models\BaoCao.cs">
+      <DependentUpon>DBQuanlydoanEF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DBQuanlydoanEF.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBQuanlydoanEF.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DBQuanlydoanEF.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBQuanlydoanEF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DBQuanlydoanEF.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBQuanlydoanEF.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DeTai.cs">
+      <DependentUpon>DBQuanlydoanEF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GiaoVien.cs">
+      <DependentUpon>DBQuanlydoanEF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\HeDaoTao.cs">
+      <DependentUpon>DBQuanlydoanEF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Khoa.cs">
+      <DependentUpon>DBQuanlydoanEF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LoaiDeTai.cs">
+      <DependentUpon>DBQuanlydoanEF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Login.cs">
+      <DependentUpon>DBQuanlydoanEF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Lop.cs">
+      <DependentUpon>DBQuanlydoanEF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SinhVien.cs">
+      <DependentUpon>DBQuanlydoanEF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagram.cs">
+      <DependentUpon>DBQuanlydoanEF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmBaoCao.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmBaoCao.Designer.cs">
+    <Compile Include="Views\frmBaoCao.Designer.cs">
       <DependentUpon>frmBaoCao.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmDeTai.cs">
+    <Compile Include="Views\frmDeTai.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmDeTai.Designer.cs">
+    <Compile Include="Views\frmDeTai.Designer.cs">
       <DependentUpon>frmDeTai.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmGiangVien.cs">
+    <Compile Include="Views\frmGiangVien.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmGiangVien.Designer.cs">
+    <Compile Include="Views\frmGiangVien.Designer.cs">
       <DependentUpon>frmGiangVien.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmSinhVien.cs">
+    <Compile Include="Views\frmSinhVien.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmSinhVien.Designer.cs">
+    <Compile Include="Views\frmSinhVien.Designer.cs">
       <DependentUpon>frmSinhVien.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frmDeTai.resx">
+    <EmbeddedResource Include="Views\frmDeTai.resx">
       <DependentUpon>frmDeTai.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -84,6 +138,14 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EntityDeploy Include="Models\DBQuanlydoanEF.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DBQuanlydoanEF.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Models\DBQuanlydoanEF.edmx.diagram">
+      <DependentUpon>DBQuanlydoanEF.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -96,6 +158,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Controllers\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Models\DBQuanlydoanEF.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>DBQuanlydoanEF.Context.cs</LastGenOutput>
+      <DependentUpon>DBQuanlydoanEF.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\DBQuanlydoanEF.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DBQuanlydoanEF.edmx</DependentUpon>
+      <LastGenOutput>DBQuanlydoanEF.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
