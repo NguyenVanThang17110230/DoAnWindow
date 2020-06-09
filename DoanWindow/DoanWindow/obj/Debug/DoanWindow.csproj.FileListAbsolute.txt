@@ -18,3 +18,9 @@ D:\(4) GitHub\DoAnWindow\DoanWindow\DoanWindow\obj\Debug\DoanWindow.exe
 D:\(4) GitHub\DoAnWindow\DoanWindow\DoanWindow\obj\Debug\DoanWindow.pdb
 D:\(4) GitHub\DoAnWindow\DoanWindow\DoanWindow\obj\Debug\DoanWindow.frmDeTai.resources
 C:\Users\Admin\OneDrive\Máy tính\DoAnWindow\DoanWindow\DoanWindow\obj\Debug\DoanWindow.frmDeTai.resources
+C:\Users\Admin\OneDrive\Máy tính\DoAnWindow\DoanWindow\DoanWindow\bin\Debug\EntityFramework.dll
+C:\Users\Admin\OneDrive\Máy tính\DoAnWindow\DoanWindow\DoanWindow\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Admin\OneDrive\Máy tính\DoAnWindow\DoanWindow\DoanWindow\bin\Debug\EntityFramework.xml
+C:\Users\Admin\OneDrive\Máy tính\DoAnWindow\DoanWindow\DoanWindow\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Admin\OneDrive\Máy tính\DoAnWindow\DoanWindow\DoanWindow\obj\Debug\DoanWindow.frmGiangVien.resources
+C:\Users\Admin\OneDrive\Máy tính\DoAnWindow\DoanWindow\DoanWindow\obj\Debug\DoanWindow.csproj.CopyComplete

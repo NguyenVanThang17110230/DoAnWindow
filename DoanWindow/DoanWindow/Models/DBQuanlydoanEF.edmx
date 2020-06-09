@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="QuanlidoansinhvienModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="QuanlidoansinhvienModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="BaoCao">
           <Key>
             <PropertyRef Name="IDBaoCao" />
@@ -36,26 +36,19 @@
           </Key>
           <Property Name="ID" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Ten" Type="nvarchar" MaxLength="50" />
-          <Property Name="Tuoi" Type="int" />
+          <Property Name="NgaySinh" Type="date" />
           <Property Name="GioiTinh" Type="bit" />
           <Property Name="ChucVu" Type="nvarchar" MaxLength="50" />
           <Property Name="Khoa" Type="nvarchar" MaxLength="50" />
           <Property Name="DiaChi" Type="nvarchar" MaxLength="50" />
           <Property Name="Sdt" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <EntityType Name="HeDaoTao">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="TenHeDaoTao" Type="nvarchar" MaxLength="50" />
-        </EntityType>
         <EntityType Name="Khoa">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="TenKhoa" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="TenKhoa" Type="nvarchar" MaxLength="50" />
           <Property Name="TruongKhoa" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="LoaiDeTai">
@@ -156,18 +149,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Lop_HeDaoTao">
-          <End Role="HeDaoTao" Type="Self.HeDaoTao" Multiplicity="0..1" />
-          <End Role="Lop" Type="Self.Lop" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="HeDaoTao">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Lop">
-              <PropertyRef Name="HeDaoTao" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_SinhVien_DeTai">
           <End Role="DeTai" Type="Self.DeTai" Multiplicity="0..1" />
           <End Role="SinhVien" Type="Self.SinhVien" Multiplicity="*" />
@@ -204,11 +185,41 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="QuanlidoansinhvienModelStoreContainer">
           <EntitySet Name="BaoCao" EntityType="Self.BaoCao" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DeTai" EntityType="Self.DeTai" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GiaoVien" EntityType="Self.GiaoVien" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="HeDaoTao" EntityType="Self.HeDaoTao" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Khoa" EntityType="Self.Khoa" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LoaiDeTai" EntityType="Self.LoaiDeTai" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Login" EntityType="Self.Login" Schema="dbo" store:Type="Tables" />
@@ -231,10 +242,6 @@
             <End Role="Khoa" EntitySet="Khoa" />
             <End Role="GiaoVien" EntitySet="GiaoVien" />
           </AssociationSet>
-          <AssociationSet Name="FK_Lop_HeDaoTao" Association="Self.FK_Lop_HeDaoTao">
-            <End Role="HeDaoTao" EntitySet="HeDaoTao" />
-            <End Role="Lop" EntitySet="Lop" />
-          </AssociationSet>
           <AssociationSet Name="FK_SinhVien_DeTai" Association="Self.FK_SinhVien_DeTai">
             <End Role="DeTai" EntitySet="DeTai" />
             <End Role="SinhVien" EntitySet="SinhVien" />
@@ -248,28 +255,107 @@
             <End Role="SinhVien" EntitySet="SinhVien" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="QuanlidoansinhvienModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="QuanlidoansinhvienEntities" annotation:LazyLoadingEnabled="true">
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(QuanlidoansinhvienModel.sp_helpdiagramdefinition_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(QuanlidoansinhvienModel.sp_helpdiagrams_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
+          <EntitySet Name="BaoCaos" EntityType="QuanlidoansinhvienModel.BaoCao" />
+          <EntitySet Name="DeTais" EntityType="QuanlidoansinhvienModel.DeTai" />
+          <EntitySet Name="GiaoViens" EntityType="QuanlidoansinhvienModel.GiaoVien" />
+          <EntitySet Name="Khoas" EntityType="QuanlidoansinhvienModel.Khoa" />
+          <EntitySet Name="LoaiDeTais" EntityType="QuanlidoansinhvienModel.LoaiDeTai" />
+          <EntitySet Name="Logins" EntityType="QuanlidoansinhvienModel.Login" />
+          <EntitySet Name="Lops" EntityType="QuanlidoansinhvienModel.Lop" />
+          <EntitySet Name="SinhViens" EntityType="QuanlidoansinhvienModel.SinhVien" />
+          <EntitySet Name="sysdiagrams" EntityType="QuanlidoansinhvienModel.sysdiagram" />
+          <AssociationSet Name="FK_BaoCao_DeTai" Association="QuanlidoansinhvienModel.FK_BaoCao_DeTai">
+            <End Role="DeTai" EntitySet="DeTais" />
+            <End Role="BaoCao" EntitySet="BaoCaos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeTai_GiaoVien" Association="QuanlidoansinhvienModel.FK_DeTai_GiaoVien">
+            <End Role="GiaoVien" EntitySet="GiaoViens" />
+            <End Role="DeTai" EntitySet="DeTais" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeTai_LoaiDeTai" Association="QuanlidoansinhvienModel.FK_DeTai_LoaiDeTai">
+            <End Role="LoaiDeTai" EntitySet="LoaiDeTais" />
+            <End Role="DeTai" EntitySet="DeTais" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SinhVien_DeTai" Association="QuanlidoansinhvienModel.FK_SinhVien_DeTai">
+            <End Role="DeTai" EntitySet="DeTais" />
+            <End Role="SinhVien" EntitySet="SinhViens" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GiaoVien_Khoa" Association="QuanlidoansinhvienModel.FK_GiaoVien_Khoa">
+            <End Role="Khoa" EntitySet="Khoas" />
+            <End Role="GiaoVien" EntitySet="GiaoViens" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SinhVien_Khoa" Association="QuanlidoansinhvienModel.FK_SinhVien_Khoa">
+            <End Role="Khoa" EntitySet="Khoas" />
+            <End Role="SinhVien" EntitySet="SinhViens" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SinhVien_Lop" Association="QuanlidoansinhvienModel.FK_SinhVien_Lop">
+            <End Role="Lop" EntitySet="Lops" />
+            <End Role="SinhVien" EntitySet="SinhViens" />
+          </AssociationSet>
+          </EntityContainer>
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
         <EntityType Name="BaoCao">
           <Key>
             <PropertyRef Name="IDBaoCao" />
           </Key>
-          <Property Name="IDBaoCao" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="IDBaoCao" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="IDDeTai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="TaiLieu" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="NhanXet" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="DiemTong" Type="Double" />
           <Property Name="TrangThai" Type="Boolean" />
-          <NavigationProperty Name="DeTai" Relationship="Self.FK_BaoCao_DeTai" FromRole="BaoCao" ToRole="DeTai" />
+          <NavigationProperty Name="DeTai" Relationship="QuanlidoansinhvienModel.FK_BaoCao_DeTai" FromRole="BaoCao" ToRole="DeTai" />
         </EntityType>
         <EntityType Name="DeTai">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="TenDeTai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="LoaiDeTai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="GiaoVienHuongDan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -278,58 +364,50 @@
           <Property Name="ThoiGianBatDau" Type="DateTime" Precision="0" />
           <Property Name="ThoiGianKetThuc" Type="DateTime" Precision="0" />
           <Property Name="TinhTrang" Type="Boolean" />
-          <NavigationProperty Name="BaoCaos" Relationship="Self.FK_BaoCao_DeTai" FromRole="DeTai" ToRole="BaoCao" />
-          <NavigationProperty Name="GiaoVien" Relationship="Self.FK_DeTai_GiaoVien" FromRole="DeTai" ToRole="GiaoVien" />
-          <NavigationProperty Name="LoaiDeTai1" Relationship="Self.FK_DeTai_LoaiDeTai" FromRole="DeTai" ToRole="LoaiDeTai" />
-          <NavigationProperty Name="SinhViens" Relationship="Self.FK_SinhVien_DeTai" FromRole="DeTai" ToRole="SinhVien" />
+          <NavigationProperty Name="BaoCaos" Relationship="QuanlidoansinhvienModel.FK_BaoCao_DeTai" FromRole="DeTai" ToRole="BaoCao" />
+          <NavigationProperty Name="GiaoVien" Relationship="QuanlidoansinhvienModel.FK_DeTai_GiaoVien" FromRole="DeTai" ToRole="GiaoVien" />
+          <NavigationProperty Name="LoaiDeTai1" Relationship="QuanlidoansinhvienModel.FK_DeTai_LoaiDeTai" FromRole="DeTai" ToRole="LoaiDeTai" />
+          <NavigationProperty Name="SinhViens" Relationship="QuanlidoansinhvienModel.FK_SinhVien_DeTai" FromRole="DeTai" ToRole="SinhVien" />
         </EntityType>
         <EntityType Name="GiaoVien">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Ten" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Tuoi" Type="Int32" />
+          <Property Name="NgaySinh" Type="DateTime" Precision="0" />
           <Property Name="GioiTinh" Type="Boolean" />
           <Property Name="ChucVu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Khoa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="DiaChi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Sdt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="DeTais" Relationship="Self.FK_DeTai_GiaoVien" FromRole="GiaoVien" ToRole="DeTai" />
-          <NavigationProperty Name="Khoa1" Relationship="Self.FK_GiaoVien_Khoa" FromRole="GiaoVien" ToRole="Khoa" />
-        </EntityType>
-        <EntityType Name="HeDaoTao">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="TenHeDaoTao" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Lops" Relationship="Self.FK_Lop_HeDaoTao" FromRole="HeDaoTao" ToRole="Lop" />
+          <NavigationProperty Name="DeTais" Relationship="QuanlidoansinhvienModel.FK_DeTai_GiaoVien" FromRole="GiaoVien" ToRole="DeTai" />
+          <NavigationProperty Name="Khoa1" Relationship="QuanlidoansinhvienModel.FK_GiaoVien_Khoa" FromRole="GiaoVien" ToRole="Khoa" />
         </EntityType>
         <EntityType Name="Khoa">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="TenKhoa" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TenKhoa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="TruongKhoa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="GiaoViens" Relationship="Self.FK_GiaoVien_Khoa" FromRole="Khoa" ToRole="GiaoVien" />
-          <NavigationProperty Name="SinhViens" Relationship="Self.FK_SinhVien_Khoa" FromRole="Khoa" ToRole="SinhVien" />
+          <NavigationProperty Name="GiaoViens" Relationship="QuanlidoansinhvienModel.FK_GiaoVien_Khoa" FromRole="Khoa" ToRole="GiaoVien" />
+          <NavigationProperty Name="SinhViens" Relationship="QuanlidoansinhvienModel.FK_SinhVien_Khoa" FromRole="Khoa" ToRole="SinhVien" />
         </EntityType>
         <EntityType Name="LoaiDeTai">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="LoaiDeTai1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="MoTa" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="DeTais" Relationship="Self.FK_DeTai_LoaiDeTai" FromRole="LoaiDeTai" ToRole="DeTai" />
+          <NavigationProperty Name="DeTais" Relationship="QuanlidoansinhvienModel.FK_DeTai_LoaiDeTai" FromRole="LoaiDeTai" ToRole="DeTai" />
         </EntityType>
         <EntityType Name="Login">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="PhanQuyen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -338,18 +416,17 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="TenLop" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="HeDaoTao" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="LopTruong" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="HeDaoTao1" Relationship="Self.FK_Lop_HeDaoTao" FromRole="Lop" ToRole="HeDaoTao" />
-          <NavigationProperty Name="SinhViens" Relationship="Self.FK_SinhVien_Lop" FromRole="Lop" ToRole="SinhVien" />
+          <NavigationProperty Name="SinhViens" Relationship="QuanlidoansinhvienModel.FK_SinhVien_Lop" FromRole="Lop" ToRole="SinhVien" />
         </EntityType>
         <EntityType Name="SinhVien">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ID" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Ten" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="GioiTinh" Type="Boolean" />
           <Property Name="Tuoi" Type="Int32" />
@@ -358,23 +435,23 @@
           <Property Name="DiaChi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Sdt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="DeTai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="DeTai1" Relationship="Self.FK_SinhVien_DeTai" FromRole="SinhVien" ToRole="DeTai" />
-          <NavigationProperty Name="Khoa1" Relationship="Self.FK_SinhVien_Khoa" FromRole="SinhVien" ToRole="Khoa" />
-          <NavigationProperty Name="Lop1" Relationship="Self.FK_SinhVien_Lop" FromRole="SinhVien" ToRole="Lop" />
+          <NavigationProperty Name="DeTai1" Relationship="QuanlidoansinhvienModel.FK_SinhVien_DeTai" FromRole="SinhVien" ToRole="DeTai" />
+          <NavigationProperty Name="Khoa1" Relationship="QuanlidoansinhvienModel.FK_SinhVien_Khoa" FromRole="SinhVien" ToRole="Khoa" />
+          <NavigationProperty Name="Lop1" Relationship="QuanlidoansinhvienModel.FK_SinhVien_Lop" FromRole="SinhVien" ToRole="Lop" />
         </EntityType>
         <EntityType Name="sysdiagram">
           <Key>
             <PropertyRef Name="diagram_id" />
           </Key>
-          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="principal_id" Type="Int32" Nullable="false" />
           <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="version" Type="Int32" />
           <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <Association Name="FK_BaoCao_DeTai">
-          <End Role="DeTai" Type="Self.DeTai" Multiplicity="0..1" />
-          <End Role="BaoCao" Type="Self.BaoCao" Multiplicity="*" />
+          <End Type="QuanlidoansinhvienModel.DeTai" Role="DeTai" Multiplicity="0..1" />
+          <End Type="QuanlidoansinhvienModel.BaoCao" Role="BaoCao" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="DeTai">
               <PropertyRef Name="ID" />
@@ -385,8 +462,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_DeTai_GiaoVien">
-          <End Role="GiaoVien" Type="Self.GiaoVien" Multiplicity="0..1" />
-          <End Role="DeTai" Type="Self.DeTai" Multiplicity="*" />
+          <End Type="QuanlidoansinhvienModel.GiaoVien" Role="GiaoVien" Multiplicity="0..1" />
+          <End Type="QuanlidoansinhvienModel.DeTai" Role="DeTai" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="GiaoVien">
               <PropertyRef Name="ID" />
@@ -397,8 +474,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_DeTai_LoaiDeTai">
-          <End Role="LoaiDeTai" Type="Self.LoaiDeTai" Multiplicity="0..1" />
-          <End Role="DeTai" Type="Self.DeTai" Multiplicity="*" />
+          <End Type="QuanlidoansinhvienModel.LoaiDeTai" Role="LoaiDeTai" Multiplicity="0..1" />
+          <End Type="QuanlidoansinhvienModel.DeTai" Role="DeTai" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="LoaiDeTai">
               <PropertyRef Name="ID" />
@@ -409,8 +486,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_SinhVien_DeTai">
-          <End Role="DeTai" Type="Self.DeTai" Multiplicity="0..1" />
-          <End Role="SinhVien" Type="Self.SinhVien" Multiplicity="*" />
+          <End Type="QuanlidoansinhvienModel.DeTai" Role="DeTai" Multiplicity="0..1" />
+          <End Type="QuanlidoansinhvienModel.SinhVien" Role="SinhVien" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="DeTai">
               <PropertyRef Name="ID" />
@@ -421,8 +498,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_GiaoVien_Khoa">
-          <End Role="Khoa" Type="Self.Khoa" Multiplicity="0..1" />
-          <End Role="GiaoVien" Type="Self.GiaoVien" Multiplicity="*" />
+          <End Type="QuanlidoansinhvienModel.Khoa" Role="Khoa" Multiplicity="0..1" />
+          <End Type="QuanlidoansinhvienModel.GiaoVien" Role="GiaoVien" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Khoa">
               <PropertyRef Name="ID" />
@@ -432,21 +509,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Lop_HeDaoTao">
-          <End Role="HeDaoTao" Type="Self.HeDaoTao" Multiplicity="0..1" />
-          <End Role="Lop" Type="Self.Lop" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="HeDaoTao">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Lop">
-              <PropertyRef Name="HeDaoTao" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_SinhVien_Khoa">
-          <End Role="Khoa" Type="Self.Khoa" Multiplicity="0..1" />
-          <End Role="SinhVien" Type="Self.SinhVien" Multiplicity="*" />
+          <End Type="QuanlidoansinhvienModel.Khoa" Role="Khoa" Multiplicity="0..1" />
+          <End Type="QuanlidoansinhvienModel.SinhVien" Role="SinhVien" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Khoa">
               <PropertyRef Name="ID" />
@@ -457,8 +522,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_SinhVien_Lop">
-          <End Role="Lop" Type="Self.Lop" Multiplicity="0..1" />
-          <End Role="SinhVien" Type="Self.SinhVien" Multiplicity="*" />
+          <End Type="QuanlidoansinhvienModel.Lop" Role="Lop" Multiplicity="0..1" />
+          <End Type="QuanlidoansinhvienModel.SinhVien" Role="SinhVien" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Lop">
               <PropertyRef Name="ID" />
@@ -468,170 +533,142 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="QuanlidoansinhvienEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="BaoCaos" EntityType="Self.BaoCao" />
-          <EntitySet Name="DeTais" EntityType="Self.DeTai" />
-          <EntitySet Name="GiaoViens" EntityType="Self.GiaoVien" />
-          <EntitySet Name="HeDaoTaos" EntityType="Self.HeDaoTao" />
-          <EntitySet Name="Khoas" EntityType="Self.Khoa" />
-          <EntitySet Name="LoaiDeTais" EntityType="Self.LoaiDeTai" />
-          <EntitySet Name="Logins" EntityType="Self.Login" />
-          <EntitySet Name="Lops" EntityType="Self.Lop" />
-          <EntitySet Name="SinhViens" EntityType="Self.SinhVien" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
-          <AssociationSet Name="FK_BaoCao_DeTai" Association="Self.FK_BaoCao_DeTai">
-            <End Role="DeTai" EntitySet="DeTais" />
-            <End Role="BaoCao" EntitySet="BaoCaos" />
-          </AssociationSet>
-          <AssociationSet Name="FK_DeTai_GiaoVien" Association="Self.FK_DeTai_GiaoVien">
-            <End Role="GiaoVien" EntitySet="GiaoViens" />
-            <End Role="DeTai" EntitySet="DeTais" />
-          </AssociationSet>
-          <AssociationSet Name="FK_DeTai_LoaiDeTai" Association="Self.FK_DeTai_LoaiDeTai">
-            <End Role="LoaiDeTai" EntitySet="LoaiDeTais" />
-            <End Role="DeTai" EntitySet="DeTais" />
-          </AssociationSet>
-          <AssociationSet Name="FK_SinhVien_DeTai" Association="Self.FK_SinhVien_DeTai">
-            <End Role="DeTai" EntitySet="DeTais" />
-            <End Role="SinhVien" EntitySet="SinhViens" />
-          </AssociationSet>
-          <AssociationSet Name="FK_GiaoVien_Khoa" Association="Self.FK_GiaoVien_Khoa">
-            <End Role="Khoa" EntitySet="Khoas" />
-            <End Role="GiaoVien" EntitySet="GiaoViens" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Lop_HeDaoTao" Association="Self.FK_Lop_HeDaoTao">
-            <End Role="HeDaoTao" EntitySet="HeDaoTaos" />
-            <End Role="Lop" EntitySet="Lops" />
-          </AssociationSet>
-          <AssociationSet Name="FK_SinhVien_Khoa" Association="Self.FK_SinhVien_Khoa">
-            <End Role="Khoa" EntitySet="Khoas" />
-            <End Role="SinhVien" EntitySet="SinhViens" />
-          </AssociationSet>
-          <AssociationSet Name="FK_SinhVien_Lop" Association="Self.FK_SinhVien_Lop">
-            <End Role="Lop" EntitySet="Lops" />
-            <End Role="SinhVien" EntitySet="SinhViens" />
-          </AssociationSet>
-        </EntityContainer>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="QuanlidoansinhvienModelStoreContainer" CdmEntityContainer="QuanlidoansinhvienEntities">
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="QuanlidoansinhvienModel.Store.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="QuanlidoansinhvienModel.Store.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="QuanlidoansinhvienModel.Store.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="QuanlidoansinhvienModel.Store.sp_helpdiagramdefinition">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QuanlidoansinhvienModel.sp_helpdiagramdefinition_Result">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="QuanlidoansinhvienModel.Store.sp_helpdiagrams">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QuanlidoansinhvienModel.sp_helpdiagrams_Result">
+                <ScalarProperty Name="Database" ColumnName="Database" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="QuanlidoansinhvienModel.Store.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="QuanlidoansinhvienModel.Store.sp_upgraddiagrams" />
           <EntitySetMapping Name="BaoCaos">
             <EntityTypeMapping TypeName="QuanlidoansinhvienModel.BaoCao">
               <MappingFragment StoreEntitySet="BaoCao">
-                <ScalarProperty Name="IDBaoCao" ColumnName="IDBaoCao" />
-                <ScalarProperty Name="IDDeTai" ColumnName="IDDeTai" />
-                <ScalarProperty Name="TaiLieu" ColumnName="TaiLieu" />
-                <ScalarProperty Name="NhanXet" ColumnName="NhanXet" />
-                <ScalarProperty Name="DiemTong" ColumnName="DiemTong" />
                 <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+                <ScalarProperty Name="DiemTong" ColumnName="DiemTong" />
+                <ScalarProperty Name="NhanXet" ColumnName="NhanXet" />
+                <ScalarProperty Name="TaiLieu" ColumnName="TaiLieu" />
+                <ScalarProperty Name="IDDeTai" ColumnName="IDDeTai" />
+                <ScalarProperty Name="IDBaoCao" ColumnName="IDBaoCao" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="DeTais">
             <EntityTypeMapping TypeName="QuanlidoansinhvienModel.DeTai">
               <MappingFragment StoreEntitySet="DeTai">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="TenDeTai" ColumnName="TenDeTai" />
-                <ScalarProperty Name="LoaiDeTai" ColumnName="LoaiDeTai" />
-                <ScalarProperty Name="GiaoVienHuongDan" ColumnName="GiaoVienHuongDan" />
-                <ScalarProperty Name="MoTa" ColumnName="MoTa" />
-                <ScalarProperty Name="SoLuongSinhVien" ColumnName="SoLuongSinhVien" />
-                <ScalarProperty Name="ThoiGianBatDau" ColumnName="ThoiGianBatDau" />
-                <ScalarProperty Name="ThoiGianKetThuc" ColumnName="ThoiGianKetThuc" />
                 <ScalarProperty Name="TinhTrang" ColumnName="TinhTrang" />
+                <ScalarProperty Name="ThoiGianKetThuc" ColumnName="ThoiGianKetThuc" />
+                <ScalarProperty Name="ThoiGianBatDau" ColumnName="ThoiGianBatDau" />
+                <ScalarProperty Name="SoLuongSinhVien" ColumnName="SoLuongSinhVien" />
+                <ScalarProperty Name="MoTa" ColumnName="MoTa" />
+                <ScalarProperty Name="GiaoVienHuongDan" ColumnName="GiaoVienHuongDan" />
+                <ScalarProperty Name="LoaiDeTai" ColumnName="LoaiDeTai" />
+                <ScalarProperty Name="TenDeTai" ColumnName="TenDeTai" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="GiaoViens">
             <EntityTypeMapping TypeName="QuanlidoansinhvienModel.GiaoVien">
               <MappingFragment StoreEntitySet="GiaoVien">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Ten" ColumnName="Ten" />
-                <ScalarProperty Name="Tuoi" ColumnName="Tuoi" />
-                <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
-                <ScalarProperty Name="ChucVu" ColumnName="ChucVu" />
-                <ScalarProperty Name="Khoa" ColumnName="Khoa" />
-                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
                 <ScalarProperty Name="Sdt" ColumnName="Sdt" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="HeDaoTaos">
-            <EntityTypeMapping TypeName="QuanlidoansinhvienModel.HeDaoTao">
-              <MappingFragment StoreEntitySet="HeDaoTao">
+                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+                <ScalarProperty Name="Khoa" ColumnName="Khoa" />
+                <ScalarProperty Name="ChucVu" ColumnName="ChucVu" />
+                <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+                <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+                <ScalarProperty Name="Ten" ColumnName="Ten" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="TenHeDaoTao" ColumnName="TenHeDaoTao" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Khoas">
             <EntityTypeMapping TypeName="QuanlidoansinhvienModel.Khoa">
               <MappingFragment StoreEntitySet="Khoa">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="TenKhoa" ColumnName="TenKhoa" />
                 <ScalarProperty Name="TruongKhoa" ColumnName="TruongKhoa" />
+                <ScalarProperty Name="TenKhoa" ColumnName="TenKhoa" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="LoaiDeTais">
             <EntityTypeMapping TypeName="QuanlidoansinhvienModel.LoaiDeTai">
               <MappingFragment StoreEntitySet="LoaiDeTai">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="LoaiDeTai1" ColumnName="LoaiDeTai" />
                 <ScalarProperty Name="MoTa" ColumnName="MoTa" />
+                <ScalarProperty Name="LoaiDeTai1" ColumnName="LoaiDeTai" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Logins">
             <EntityTypeMapping TypeName="QuanlidoansinhvienModel.Login">
               <MappingFragment StoreEntitySet="Login">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Username" ColumnName="Username" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="PhanQuyen" ColumnName="PhanQuyen" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Lops">
             <EntityTypeMapping TypeName="QuanlidoansinhvienModel.Lop">
               <MappingFragment StoreEntitySet="Lop">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="TenLop" ColumnName="TenLop" />
-                <ScalarProperty Name="HeDaoTao" ColumnName="HeDaoTao" />
                 <ScalarProperty Name="LopTruong" ColumnName="LopTruong" />
+                <ScalarProperty Name="HeDaoTao" ColumnName="HeDaoTao" />
+                <ScalarProperty Name="TenLop" ColumnName="TenLop" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="SinhViens">
             <EntityTypeMapping TypeName="QuanlidoansinhvienModel.SinhVien">
               <MappingFragment StoreEntitySet="SinhVien">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Ten" ColumnName="Ten" />
-                <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
-                <ScalarProperty Name="Tuoi" ColumnName="Tuoi" />
-                <ScalarProperty Name="Lop" ColumnName="Lop" />
-                <ScalarProperty Name="khoa" ColumnName="khoa" />
-                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
-                <ScalarProperty Name="Sdt" ColumnName="Sdt" />
                 <ScalarProperty Name="DeTai" ColumnName="DeTai" />
+                <ScalarProperty Name="Sdt" ColumnName="Sdt" />
+                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+                <ScalarProperty Name="khoa" ColumnName="khoa" />
+                <ScalarProperty Name="Lop" ColumnName="Lop" />
+                <ScalarProperty Name="Tuoi" ColumnName="Tuoi" />
+                <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+                <ScalarProperty Name="Ten" ColumnName="Ten" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
             <EntityTypeMapping TypeName="QuanlidoansinhvienModel.sysdiagram">
               <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="version" ColumnName="version" />
                 <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-        </EntityContainerMapping>
+          </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>

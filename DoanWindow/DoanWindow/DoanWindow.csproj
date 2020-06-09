@@ -55,6 +55,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\GiaoVienController.cs" />
     <Compile Include="Models\BaoCao.cs">
       <DependentUpon>DBQuanlydoanEF.tt</DependentUpon>
     </Compile>
@@ -79,9 +80,6 @@
     <Compile Include="Models\GiaoVien.cs">
       <DependentUpon>DBQuanlydoanEF.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\HeDaoTao.cs">
-      <DependentUpon>DBQuanlydoanEF.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\Khoa.cs">
       <DependentUpon>DBQuanlydoanEF.tt</DependentUpon>
     </Compile>
@@ -95,6 +93,12 @@
       <DependentUpon>DBQuanlydoanEF.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SinhVien.cs">
+      <DependentUpon>DBQuanlydoanEF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>DBQuanlydoanEF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_helpdiagrams_Result.cs">
       <DependentUpon>DBQuanlydoanEF.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sysdiagram.cs">
@@ -138,6 +142,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Views\frmGiangVien.resx">
+      <DependentUpon>frmGiangVien.cs</DependentUpon>
+    </EmbeddedResource>
     <EntityDeploy Include="Models\DBQuanlydoanEF.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>DBQuanlydoanEF.Designer.cs</LastGenOutput>
@@ -159,9 +166,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Models\DBQuanlydoanEF.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

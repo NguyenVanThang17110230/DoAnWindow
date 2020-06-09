@@ -22,7 +22,7 @@ namespace DoanWindow.Models
         }
     
         public string ID { get; set; }
-        public Nullable<decimal> TenKhoa { get; set; }
+        public string TenKhoa { get; set; }
         public string TruongKhoa { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
