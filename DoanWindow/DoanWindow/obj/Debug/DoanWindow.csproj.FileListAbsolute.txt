@@ -24,3 +24,4 @@ C:\Users\Admin\OneDrive\Máy tính\DoAnWindow\DoanWindow\DoanWindow\bin\Debug\En
 C:\Users\Admin\OneDrive\Máy tính\DoAnWindow\DoanWindow\DoanWindow\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Admin\OneDrive\Máy tính\DoAnWindow\DoanWindow\DoanWindow\obj\Debug\DoanWindow.frmGiangVien.resources
 C:\Users\Admin\OneDrive\Máy tính\DoAnWindow\DoanWindow\DoanWindow\obj\Debug\DoanWindow.csproj.CopyComplete
+C:\Users\Admin\OneDrive\Máy tính\DoAnWindow\DoanWindow\DoanWindow\obj\Debug\DoanWindow.frmSinhVien.resources

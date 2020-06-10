@@ -145,6 +145,9 @@
     <EmbeddedResource Include="Views\frmGiangVien.resx">
       <DependentUpon>frmGiangVien.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmSinhVien.resx">
+      <DependentUpon>frmSinhVien.cs</DependentUpon>
+    </EmbeddedResource>
     <EntityDeploy Include="Models\DBQuanlydoanEF.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>DBQuanlydoanEF.Designer.cs</LastGenOutput>
