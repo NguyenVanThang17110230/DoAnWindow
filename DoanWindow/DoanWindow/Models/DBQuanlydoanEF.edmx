@@ -28,6 +28,7 @@
           <Property Name="SoLuongSinhVien" Type="int" />
           <Property Name="ThoiGianBatDau" Type="date" />
           <Property Name="ThoiGianKetThuc" Type="date" />
+          <Property Name="SoLanBaoCao" Type="int" />
           <Property Name="TinhTrang" Type="bit" />
         </EntityType>
         <EntityType Name="GiaoVien">
@@ -363,6 +364,7 @@
           <Property Name="SoLuongSinhVien" Type="Int32" />
           <Property Name="ThoiGianBatDau" Type="DateTime" Precision="0" />
           <Property Name="ThoiGianKetThuc" Type="DateTime" Precision="0" />
+          <Property Name="SoLanBaoCao" Type="Int32" />
           <Property Name="TinhTrang" Type="Boolean" />
           <NavigationProperty Name="BaoCaos" Relationship="QuanlidoansinhvienModel.FK_BaoCao_DeTai" FromRole="DeTai" ToRole="BaoCao" />
           <NavigationProperty Name="GiaoVien" Relationship="QuanlidoansinhvienModel.FK_DeTai_GiaoVien" FromRole="DeTai" ToRole="GiaoVien" />
@@ -579,6 +581,7 @@
             <EntityTypeMapping TypeName="QuanlidoansinhvienModel.DeTai">
               <MappingFragment StoreEntitySet="DeTai">
                 <ScalarProperty Name="TinhTrang" ColumnName="TinhTrang" />
+                <ScalarProperty Name="SoLanBaoCao" ColumnName="SoLanBaoCao" />
                 <ScalarProperty Name="ThoiGianKetThuc" ColumnName="ThoiGianKetThuc" />
                 <ScalarProperty Name="ThoiGianBatDau" ColumnName="ThoiGianBatDau" />
                 <ScalarProperty Name="SoLuongSinhVien" ColumnName="SoLuongSinhVien" />

@@ -104,6 +104,7 @@
     <Property Name="SoLuongSinhVien" Type="Int32" />
     <Property Name="ThoiGianBatDau" Type="DateTime" Precision="0" />
     <Property Name="ThoiGianKetThuc" Type="DateTime" Precision="0" />
+    <Property Name="SoLanBaoCao" Type="Int32" />
     <Property Name="TinhTrang" Type="Boolean" />
     <NavigationProperty Name="BaoCaos" Relationship="QuanlidoansinhvienModel.FK_BaoCao_DeTai" FromRole="DeTai" ToRole="BaoCao" />
     <NavigationProperty Name="GiaoVien" Relationship="QuanlidoansinhvienModel.FK_DeTai_GiaoVien" FromRole="DeTai" ToRole="GiaoVien" />

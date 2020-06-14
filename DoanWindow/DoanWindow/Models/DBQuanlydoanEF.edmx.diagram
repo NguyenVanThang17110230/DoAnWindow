@@ -6,7 +6,7 @@
     <edmx:Diagrams>
       <Diagram DiagramId="bcfd0768c5114052971161e16225cf28" Name="Diagram1">
         <EntityTypeShape EntityType="QuanlidoansinhvienModel.BaoCao" Width="1.5" PointX="7.5" PointY="8.625" />
-        <EntityTypeShape EntityType="QuanlidoansinhvienModel.DeTai" Width="1.5" PointX="5.25" PointY="4" />
+        <EntityTypeShape EntityType="QuanlidoansinhvienModel.DeTai" Width="1.5" PointX="5.25" PointY="3.875" />
         <EntityTypeShape EntityType="QuanlidoansinhvienModel.GiaoVien" Width="1.5" PointX="3" PointY="4.25" />
         <EntityTypeShape EntityType="QuanlidoansinhvienModel.Khoa" Width="1.5" PointX="0.75" PointY="4.75" />
         <EntityTypeShape EntityType="QuanlidoansinhvienModel.LoaiDeTai" Width="1.5" PointX="3" PointY="0.875" />

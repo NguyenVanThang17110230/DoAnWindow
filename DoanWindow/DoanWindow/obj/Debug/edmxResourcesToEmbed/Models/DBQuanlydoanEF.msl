@@ -41,6 +41,7 @@
       <EntityTypeMapping TypeName="QuanlidoansinhvienModel.DeTai">
         <MappingFragment StoreEntitySet="DeTai">
           <ScalarProperty Name="TinhTrang" ColumnName="TinhTrang" />
+          <ScalarProperty Name="SoLanBaoCao" ColumnName="SoLanBaoCao" />
           <ScalarProperty Name="ThoiGianKetThuc" ColumnName="ThoiGianKetThuc" />
           <ScalarProperty Name="ThoiGianBatDau" ColumnName="ThoiGianBatDau" />
           <ScalarProperty Name="SoLuongSinhVien" ColumnName="SoLuongSinhVien" />

@@ -29,6 +29,7 @@ namespace DoanWindow.Models
         public Nullable<int> SoLuongSinhVien { get; set; }
         public Nullable<System.DateTime> ThoiGianBatDau { get; set; }
         public Nullable<System.DateTime> ThoiGianKetThuc { get; set; }
+        public Nullable<int> SoLanBaoCao { get; set; }
         public Nullable<bool> TinhTrang { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

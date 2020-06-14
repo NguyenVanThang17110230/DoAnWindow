@@ -23,6 +23,7 @@
     <Property Name="SoLuongSinhVien" Type="int" />
     <Property Name="ThoiGianBatDau" Type="date" />
     <Property Name="ThoiGianKetThuc" Type="date" />
+    <Property Name="SoLanBaoCao" Type="int" />
     <Property Name="TinhTrang" Type="bit" />
   </EntityType>
   <EntityType Name="GiaoVien">

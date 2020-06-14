@@ -55,6 +55,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\DeTaiController.cs" />
     <Compile Include="Controllers\GiaoVienController.cs" />
     <Compile Include="Models\BaoCao.cs">
       <DependentUpon>DBQuanlydoanEF.tt</DependentUpon>

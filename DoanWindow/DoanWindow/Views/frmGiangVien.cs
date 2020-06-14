@@ -134,6 +134,7 @@ namespace DoanWindow
             Load_data();
             Load_khoa();
             btnUpdateGiangVien.Enabled = false;
+            btnDeleteGiangVien.Enabled = false;
             this.cbbKhoa.Text = "";
         }
         public void Load_data()
@@ -259,6 +260,7 @@ namespace DoanWindow
 
         private void dgvGiangVien_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            btnDeleteGiangVien.Enabled = true;
             btnUpdateGiangVien.Enabled = true;
             this.txtIDGiangVien.Enabled = false;
             DataGridViewRow row = new DataGridViewRow();
