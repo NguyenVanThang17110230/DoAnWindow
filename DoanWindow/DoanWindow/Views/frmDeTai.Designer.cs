@@ -449,7 +449,7 @@
             this.ClientSize = new System.Drawing.Size(1545, 609);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmDeTai";
-            this.Text = "Form Đề Tài";
+            this.Text = "Thông tin đề tài";
             this.Load += new System.EventHandler(this.frmDeTai_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);

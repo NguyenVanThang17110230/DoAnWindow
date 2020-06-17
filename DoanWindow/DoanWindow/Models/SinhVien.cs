@@ -17,7 +17,7 @@ namespace DoanWindow.Models
         public string ID { get; set; }
         public string Ten { get; set; }
         public Nullable<bool> GioiTinh { get; set; }
-        public Nullable<int> Tuoi { get; set; }
+        public Nullable<System.DateTime> NgaySinh { get; set; }
         public string Lop { get; set; }
         public string khoa { get; set; }
         public string DiaChi { get; set; }

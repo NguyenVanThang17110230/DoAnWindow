@@ -407,7 +407,7 @@
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "frmGiangVien";
-            this.Text = "Form Giảng Viên";
+            this.Text = "Thông tin giảng viên";
             this.Load += new System.EventHandler(this.frmGiangVien_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);

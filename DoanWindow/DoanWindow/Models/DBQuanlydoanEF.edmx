@@ -62,10 +62,9 @@
         </EntityType>
         <EntityType Name="Login">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="Username" />
           </Key>
-          <Property Name="ID" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Username" Type="nvarchar" MaxLength="50" />
+          <Property Name="Username" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Password" Type="nvarchar" MaxLength="50" />
           <Property Name="PhanQuyen" Type="nvarchar" MaxLength="50" />
         </EntityType>
@@ -85,7 +84,7 @@
           <Property Name="ID" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="Ten" Type="nvarchar" MaxLength="50" />
           <Property Name="GioiTinh" Type="bit" />
-          <Property Name="Tuoi" Type="int" />
+          <Property Name="NgaySinh" Type="date" />
           <Property Name="Lop" Type="nvarchar" MaxLength="50" />
           <Property Name="khoa" Type="nvarchar" MaxLength="50" />
           <Property Name="DiaChi" Type="nvarchar" MaxLength="50" />
@@ -407,10 +406,9 @@
         </EntityType>
         <EntityType Name="Login">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="Username" />
           </Key>
-          <Property Name="ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="PhanQuyen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
@@ -431,7 +429,7 @@
           <Property Name="ID" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Ten" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="GioiTinh" Type="Boolean" />
-          <Property Name="Tuoi" Type="Int32" />
+          <Property Name="NgaySinh" Type="DateTime" Precision="0" />
           <Property Name="Lop" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="khoa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="DiaChi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -631,7 +629,6 @@
                 <ScalarProperty Name="PhanQuyen" ColumnName="PhanQuyen" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="Username" ColumnName="Username" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -653,7 +650,7 @@
                 <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
                 <ScalarProperty Name="khoa" ColumnName="khoa" />
                 <ScalarProperty Name="Lop" ColumnName="Lop" />
-                <ScalarProperty Name="Tuoi" ColumnName="Tuoi" />
+                <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
                 <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
                 <ScalarProperty Name="Ten" ColumnName="Ten" />
                 <ScalarProperty Name="ID" ColumnName="ID" />

@@ -147,10 +147,9 @@
   </EntityType>
   <EntityType Name="Login">
     <Key>
-      <PropertyRef Name="ID" />
+      <PropertyRef Name="Username" />
     </Key>
-    <Property Name="ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="PhanQuyen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
@@ -171,7 +170,7 @@
     <Property Name="ID" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="Ten" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="GioiTinh" Type="Boolean" />
-    <Property Name="Tuoi" Type="Int32" />
+    <Property Name="NgaySinh" Type="DateTime" Precision="0" />
     <Property Name="Lop" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="khoa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="DiaChi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
