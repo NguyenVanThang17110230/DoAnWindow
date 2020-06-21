@@ -17,22 +17,16 @@ namespace DoanWindow.Views
         frmSinhVien formsinhvien;
         frmGiangVien formgiangvien;
         string Username = "";
-        public frmMain()
+        public frmMain(string Username)
         {
             InitializeComponent();      
             Width = 1200;
             Height = 600;
-        }
-        public frmMain(string Username)
-        {
-            InitializeComponent();
             this.Username = Username;
-            
         }
-
         private void sinhvienToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if(Username=="giaovien")
+            if(Username=="1"||Username=="2")
             {
                 if (this.formsinhvien is null || this.formsinhvien.IsDisposed)
                 {
@@ -53,15 +47,22 @@ namespace DoanWindow.Views
 
         private void giangvienToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (this.formgiangvien is null || this.formgiangvien.IsDisposed)
+            if(Username=="1")
             {
-                this.formgiangvien = new frmGiangVien();
-                formgiangvien.MdiParent = this;
-                this.formgiangvien.Show();
+                if (this.formgiangvien is null || this.formgiangvien.IsDisposed)
+                {
+                    this.formgiangvien = new frmGiangVien();
+                    formgiangvien.MdiParent = this;
+                    this.formgiangvien.Show();
+                }
+                else
+                {
+                    this.formgiangvien.Select();
+                }
             }
             else
             {
-                this.formgiangvien.Select();
+                MessageBox.Show("Bạn không có quyền!!!", "Thông báo");
             }
         }
 
@@ -125,5 +126,16 @@ namespace DoanWindow.Views
             }
         }
 
+        private void dangxuatToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult dialog = MessageBox.Show("Bạn chắc chắn muốn đăng xuất", "Thông báo", MessageBoxButtons.YesNo);
+            if(dialog==System.Windows.Forms.DialogResult.Yes)
+            {
+                this.Hide();
+                Form lg = new frmLogin();
+                lg.ShowDialog();
+                this.Close();
+            }
+        }
     }
 }

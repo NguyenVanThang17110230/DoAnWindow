@@ -145,6 +145,9 @@
     <Compile Include="Views\frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Views\frmBaoCao.resx">
+      <DependentUpon>frmBaoCao.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\frmDeTai.resx">
       <DependentUpon>frmDeTai.cs</DependentUpon>
     </EmbeddedResource>

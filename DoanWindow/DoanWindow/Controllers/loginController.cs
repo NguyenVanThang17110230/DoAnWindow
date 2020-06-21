@@ -15,14 +15,14 @@ namespace DoanWindow.Controllers
             QuanlidoansinhvienEntities sv= new QuanlidoansinhvienEntities();
             var s = from p in sv.Logins
                     where p.Username == UserName && p.Password == Password
-                    select p;
+                    select new { p.Username,p.Password,p.PhanQuyen};
             DataTable dt = new DataTable();
             dt.Columns.Add("UserName");
             dt.Columns.Add("PassWord");
             dt.Columns.Add("PhanQuyen");
             foreach (var q in s)
             {
-                dt.Rows.Add(q.Username, q.Password);
+                dt.Rows.Add(q.Username, q.Password,q.PhanQuyen);
             }
             return dt;
         }

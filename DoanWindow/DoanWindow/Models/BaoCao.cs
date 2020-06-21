@@ -16,6 +16,7 @@ namespace DoanWindow.Models
     {
         public string IDBaoCao { get; set; }
         public string IDDeTai { get; set; }
+        public Nullable<int> LanBaoCao { get; set; }
         public string TaiLieu { get; set; }
         public string NhanXet { get; set; }
         public Nullable<double> DiemTong { get; set; }

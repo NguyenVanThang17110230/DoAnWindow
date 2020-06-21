@@ -32,6 +32,7 @@
           <ScalarProperty Name="DiemTong" ColumnName="DiemTong" />
           <ScalarProperty Name="NhanXet" ColumnName="NhanXet" />
           <ScalarProperty Name="TaiLieu" ColumnName="TaiLieu" />
+          <ScalarProperty Name="LanBaoCao" ColumnName="LanBaoCao" />
           <ScalarProperty Name="IDDeTai" ColumnName="IDDeTai" />
           <ScalarProperty Name="IDBaoCao" ColumnName="IDBaoCao" />
         </MappingFragment>

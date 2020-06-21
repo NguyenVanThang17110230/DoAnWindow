@@ -35,7 +35,7 @@ namespace DoanWindow.Views
                 {
                     MessageBox.Show("bạn đã đăng nhập thành công!!!","Thông báo");
                     this.Hide();
-                    Form main = new frmMain(dt.Rows[0][0].ToString());
+                    Form main = new frmMain(dt.Rows[0][2].ToString());
                     main.ShowDialog();
                     this.Close();
 

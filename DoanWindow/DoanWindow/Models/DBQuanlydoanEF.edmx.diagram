@@ -5,15 +5,15 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="bcfd0768c5114052971161e16225cf28" Name="Diagram1">
-        <EntityTypeShape EntityType="QuanlidoansinhvienModel.BaoCao" Width="1.5" PointX="7.5" PointY="8.625" />
+        <EntityTypeShape EntityType="QuanlidoansinhvienModel.BaoCao" Width="1.5" PointX="7.5" PointY="8.5" />
         <EntityTypeShape EntityType="QuanlidoansinhvienModel.DeTai" Width="1.5" PointX="5.25" PointY="3.875" />
         <EntityTypeShape EntityType="QuanlidoansinhvienModel.GiaoVien" Width="1.5" PointX="3" PointY="4.25" />
         <EntityTypeShape EntityType="QuanlidoansinhvienModel.Khoa" Width="1.5" PointX="0.75" PointY="4.75" />
         <EntityTypeShape EntityType="QuanlidoansinhvienModel.LoaiDeTai" Width="1.5" PointX="3" PointY="0.875" />
-        <EntityTypeShape EntityType="QuanlidoansinhvienModel.Login" Width="1.5" PointX="0.75" PointY="8.125" />
+        <EntityTypeShape EntityType="QuanlidoansinhvienModel.Login" Width="1.5" PointX="0.75" PointY="8" />
         <EntityTypeShape EntityType="QuanlidoansinhvienModel.Lop" Width="1.5" PointX="5.25" PointY="0.75" />
         <EntityTypeShape EntityType="QuanlidoansinhvienModel.SinhVien" Width="1.5" PointX="7.5" PointY="4.125" />
-        <EntityTypeShape EntityType="QuanlidoansinhvienModel.sysdiagram" Width="1.5" PointX="2.75" PointY="9.125" />
+        <EntityTypeShape EntityType="QuanlidoansinhvienModel.sysdiagram" Width="1.5" PointX="2.75" PointY="9" />
         <AssociationConnector Association="QuanlidoansinhvienModel.FK_BaoCao_DeTai" />
         <AssociationConnector Association="QuanlidoansinhvienModel.FK_DeTai_GiaoVien" />
         <AssociationConnector Association="QuanlidoansinhvienModel.FK_DeTai_LoaiDeTai" />

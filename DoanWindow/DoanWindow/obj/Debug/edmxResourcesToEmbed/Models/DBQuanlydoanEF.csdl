@@ -86,6 +86,7 @@
     </Key>
     <Property Name="IDBaoCao" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
     <Property Name="IDDeTai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LanBaoCao" Type="Int32" />
     <Property Name="TaiLieu" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="NhanXet" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
     <Property Name="DiemTong" Type="Double" />

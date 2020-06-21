@@ -11,6 +11,7 @@
           </Key>
           <Property Name="IDBaoCao" Type="nchar" MaxLength="10" Nullable="false" />
           <Property Name="IDDeTai" Type="nvarchar" MaxLength="50" />
+          <Property Name="LanBaoCao" Type="int" />
           <Property Name="TaiLieu" Type="nvarchar" MaxLength="100" />
           <Property Name="NhanXet" Type="nvarchar" MaxLength="500" />
           <Property Name="DiemTong" Type="float" />
@@ -345,6 +346,7 @@
           </Key>
           <Property Name="IDBaoCao" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="IDDeTai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LanBaoCao" Type="Int32" />
           <Property Name="TaiLieu" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="NhanXet" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="DiemTong" Type="Double" />
@@ -570,6 +572,7 @@
                 <ScalarProperty Name="DiemTong" ColumnName="DiemTong" />
                 <ScalarProperty Name="NhanXet" ColumnName="NhanXet" />
                 <ScalarProperty Name="TaiLieu" ColumnName="TaiLieu" />
+                <ScalarProperty Name="LanBaoCao" ColumnName="LanBaoCao" />
                 <ScalarProperty Name="IDDeTai" ColumnName="IDDeTai" />
                 <ScalarProperty Name="IDBaoCao" ColumnName="IDBaoCao" />
               </MappingFragment>

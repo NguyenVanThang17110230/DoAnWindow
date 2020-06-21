@@ -196,21 +196,23 @@ namespace DoanWindow
                 }
             }
             this.error.Clear();
-            var num = from u in sv.DeTais
-                      select u.SoLuongSinhVien;
+            var num = (from u in sv.DeTais
+                      where u.ID==cbbDetai.SelectedValue.ToString()
+                      select u.SoLuongSinhVien).FirstOrDefault();
             var num1 = from t in sv.SinhViens
-                        select t.DeTai;
+                       where t.DeTai == cbbDetai.SelectedValue.ToString()
+                       select t.DeTai;
             int b = num1.Count();
             if (cbbDetai.Text.Trim().Length <= 0)
             {
                 this.error.SetError(cbbDetai, "Hãy nhập đề tài cho sinh viên!!!");
                 return;
-            }                       
-            //else if(b>num)
-            //{
-            //    this.error.SetError(cbbDetai, "Đề tài này đã đủ số lượng sinh viên đăng ký!!!");
-            //    return;
-            //}
+            }
+            else if (b == num)
+            {
+                this.error.SetError(cbbDetai, "Đề tài này đã đủ số lượng sinh viên đăng ký!!!");
+                return;
+            }
             this.error.Clear();
             sinhvien.ID = this.txtIDSV.Text.Trim();
             sinhvien.Ten = this.txtTenSV.Text.Trim();
@@ -306,13 +308,21 @@ namespace DoanWindow
                 }
             }
             this.error.Clear();
-            var num = from u in sv.DeTais
-                      select u.SoLuongSinhVien;
+            var num = (from u in sv.DeTais
+                       where u.ID == cbbDetai.SelectedValue.ToString()
+                       select u.SoLuongSinhVien).FirstOrDefault();
             var num1 = from t in sv.SinhViens
+                       where t.DeTai == cbbDetai.SelectedValue.ToString()
                        select t.DeTai;
+            int b = num1.Count();
             if (cbbDetai.Text.Trim().Length <= 0)
             {
                 this.error.SetError(cbbDetai, "Hãy nhập đề tài cho sinh viên!!!");
+                return;
+            }
+            else if (b > num)
+            {
+                this.error.SetError(cbbDetai, "Đề tài này đã đủ số lượng sinh viên đăng ký!!!");
                 return;
             }
             this.error.Clear();
@@ -358,6 +368,7 @@ namespace DoanWindow
                     Load_data();
                     MessageBox.Show("Xóa thành công!!!");
                     clean();
+                    txtIDSV.Enabled = true;
 
                 }
                 catch
