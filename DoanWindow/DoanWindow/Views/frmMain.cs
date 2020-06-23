@@ -16,17 +16,17 @@ namespace DoanWindow.Views
         frmDeTai formdetai;
         frmSinhVien formsinhvien;
         frmGiangVien formgiangvien;
-        string Username = "";
-        public frmMain(string Username)
+        string Quyen = "";
+        public frmMain(string Quyen)
         {
             InitializeComponent();      
             Width = 1200;
             Height = 600;
-            this.Username = Username;
+            this.Quyen = Quyen;
         }
         private void sinhvienToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if(Username=="1"||Username=="2")
+            if(Quyen=="1"||Quyen=="2")
             {
                 if (this.formsinhvien is null || this.formsinhvien.IsDisposed)
                 {
@@ -47,7 +47,7 @@ namespace DoanWindow.Views
 
         private void giangvienToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if(Username=="1")
+            if(Quyen=="1")
             {
                 if (this.formgiangvien is null || this.formgiangvien.IsDisposed)
                 {
@@ -82,16 +82,24 @@ namespace DoanWindow.Views
 
         private void tiendoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (this.formsinhvien is null || this.formsinhvien.IsDisposed)
+            if(Quyen=="1")
             {
-                this.formsinhvien = new frmSinhVien();
-                formsinhvien.MdiParent = this;
-                this.formsinhvien.Show();
+                if (this.formbaocao is null || this.formbaocao.IsDisposed)
+                {
+                    this.formbaocao = new frmBaoCao();
+                    formbaocao.MdiParent = this;
+                    this.formbaocao.Show();
+                }
+                else
+                {
+                    this.formbaocao.Select();
+                }
             }
             else
             {
-                this.formsinhvien.Select();
-            }
+                MessageBox.Show("Bạn không có quyền!!!", "Thông báo");
+            }    
+            
         }
 
         private void frmMain_MdiChildActivate(object sender, EventArgs e)

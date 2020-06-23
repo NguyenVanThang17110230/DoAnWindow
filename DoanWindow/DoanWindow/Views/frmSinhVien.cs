@@ -374,5 +374,13 @@ namespace DoanWindow
                 catch
                 { MessageBox.Show("Xóa thất bại"); }
         }
+
+        private void txtTimkiemsv_TextChanged(object sender, EventArgs e)
+        {
+            SinhVienController svc = new SinhVienController();
+            DataTable dt = svc.Searchsv(txtTimkiemsv.Text);
+            dgvSinhVien.DataSource = dt;
+            dgvSinhVien.Refresh();
+        }
     }
 }

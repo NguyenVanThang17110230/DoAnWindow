@@ -219,7 +219,7 @@ namespace DoanWindow
                        where u.ID == cbbIDDetai.SelectedValue.ToString()
                        select u.SoLanBaoCao).FirstOrDefault();
             var num1 = from t in sv.BaoCaos
-                       where t.IDDeTai == cbbLanBC.SelectedValue.ToString()
+                       where t.IDDeTai == cbbIDDetai.SelectedValue.ToString()
                        select t.IDDeTai;
             int b = num1.Count();
             if (cbbIDDetai.Text.Trim().Length <= 0)
@@ -274,7 +274,8 @@ namespace DoanWindow
             string IDBC = this.dgvBaocao.CurrentRow.Cells[0].Value.ToString();
             BaoCao bc = sv.BaoCaos.Single(t => t.IDBaoCao.Equals(IDBC));
             bc.IDDeTai = this.cbbIDDetai.SelectedValue.ToString();
-            bc.LanBaoCao = int.Parse(this.cbbLanBC.SelectedItem.ToString());
+            cbbLanBC.Text = (b + 1).ToString();
+            bc.LanBaoCao = b + 1; //int.Parse(this.cbbLanBC.SelectedItem.ToString());
             bc.TaiLieu = this.txtTailieu.Text.Trim();
             bc.NhanXet = this.txtNhanxet.Text.Trim();
             if (this.txtDiem.Text == "")
@@ -327,6 +328,24 @@ namespace DoanWindow
         {
             clean();
             txtIDBaocao.Enabled = true;
+        }
+
+        private void txtTimkiembc_TextChanged(object sender, EventArgs e)
+        {
+            BaocaoController bcc = new BaocaoController();
+            DataTable dt = bcc.Searchsv(txtTimkiembc.Text);
+            dgvBaocao.DataSource = dt;
+            dgvBaocao.Refresh();
+        }
+
+        private void cbbIDDetai_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+            var num1 = from t in sv.BaoCaos
+                       where t.IDDeTai == cbbIDDetai.SelectedIndex.ToString()
+                       select t.IDDeTai;
+            int b = num1.Count();
+            cbbLanBC.Text =(b + 1).ToString();
         }
     }
 }

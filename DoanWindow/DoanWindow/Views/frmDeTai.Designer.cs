@@ -69,6 +69,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.error = new System.Windows.Forms.ErrorProvider(this.components);
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtTimkiemdt = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDeTai)).BeginInit();
@@ -90,6 +92,8 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.txtTimkiemdt);
+            this.groupBox4.Controls.Add(this.label10);
             this.groupBox4.Controls.Add(this.dgvDeTai);
             this.groupBox4.Location = new System.Drawing.Point(407, 35);
             this.groupBox4.Name = "groupBox4";
@@ -113,11 +117,11 @@
             this.cNgayKT,
             this.cSolanBC,
             this.cTinhTrangBC});
-            this.dgvDeTai.Location = new System.Drawing.Point(10, 29);
+            this.dgvDeTai.Location = new System.Drawing.Point(10, 61);
             this.dgvDeTai.Name = "dgvDeTai";
             this.dgvDeTai.RowHeadersWidth = 51;
             this.dgvDeTai.RowTemplate.Height = 24;
-            this.dgvDeTai.Size = new System.Drawing.Size(1093, 510);
+            this.dgvDeTai.Size = new System.Drawing.Size(1093, 478);
             this.dgvDeTai.TabIndex = 0;
             this.dgvDeTai.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDeTai_CellClick);
             // 
@@ -442,6 +446,23 @@
             // 
             this.error.ContainerControl = this;
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(10, 26);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(66, 17);
+            this.label10.TabIndex = 1;
+            this.label10.Text = "Tìm kiếm:";
+            // 
+            // txtTimkiemdt
+            // 
+            this.txtTimkiemdt.Location = new System.Drawing.Point(92, 22);
+            this.txtTimkiemdt.Name = "txtTimkiemdt";
+            this.txtTimkiemdt.Size = new System.Drawing.Size(296, 25);
+            this.txtTimkiemdt.TabIndex = 2;
+            this.txtTimkiemdt.TextChanged += new System.EventHandler(this.txtTimkiemdt_TextChanged);
+            // 
             // frmDeTai
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -453,6 +474,7 @@
             this.Load += new System.EventHandler(this.frmDeTai_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDeTai)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
@@ -503,5 +525,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cSolanBC;
         private System.Windows.Forms.DataGridViewTextBoxColumn cTinhTrangBC;
         private System.Windows.Forms.ErrorProvider error;
+        private System.Windows.Forms.TextBox txtTimkiemdt;
+        private System.Windows.Forms.Label label10;
     }
 }

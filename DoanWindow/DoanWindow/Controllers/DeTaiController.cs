@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DoanWindow.Models;
 using System.Data.Entity.Migrations;
+using System.Data;
 
 namespace DoanWindow.Controllers
 {
@@ -45,6 +46,29 @@ namespace DoanWindow.Controllers
                     return null;
                 }
             }
+        }
+        public DataTable Searchsv(string Ten)
+        {
+            QuanlidoansinhvienEntities sv = new QuanlidoansinhvienEntities();
+            var data = from p in sv.DeTais
+                       where p.TenDeTai.Contains(Ten) || p.ID.Contains(Ten)
+                       select p;
+            DataTable dt = new DataTable();
+            dt.Columns.Add("ID");
+            dt.Columns.Add("TenDeTai");
+            dt.Columns.Add("LoaiDeTai");
+            dt.Columns.Add("GiaoVienHuongDan");
+            dt.Columns.Add("MoTa");
+            dt.Columns.Add("SoLuongSinhVien");
+            dt.Columns.Add("ThoiGianBatDau");
+            dt.Columns.Add("ThoiGianKetThuc");
+            dt.Columns.Add("SoLanBaoCao");
+            dt.Columns.Add("TinhTrang");
+            foreach (var q in data)
+            {
+                dt.Rows.Add(q.ID, q.TenDeTai, q.LoaiDeTai, q.GiaoVienHuongDan, q.MoTa, q.SoLuongSinhVien, q.ThoiGianBatDau, q.ThoiGianKetThuc, q.SoLanBaoCao, q.TinhTrang);
+            }
+            return dt;
         }
     }
 }

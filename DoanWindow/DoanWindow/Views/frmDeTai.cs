@@ -268,5 +268,13 @@ namespace DoanWindow
                 catch
                 { MessageBox.Show("Xóa thất bại"); }
         }
+
+        private void txtTimkiemdt_TextChanged(object sender, EventArgs e)
+        {
+            DeTaiController dtc = new DeTaiController();
+            DataTable dt = dtc.Searchsv(txtTimkiemdt.Text);
+            dgvDeTai.DataSource = dt;
+            dgvDeTai.Refresh();
+        }
     }
 }

@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.txtTimkiemsv = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.dgvSinhVien = new System.Windows.Forms.DataGridView();
             this.cIDSV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cTen = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -86,6 +88,8 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.txtTimkiemsv);
+            this.groupBox4.Controls.Add(this.label10);
             this.groupBox4.Controls.Add(this.dgvSinhVien);
             this.groupBox4.Location = new System.Drawing.Point(385, 35);
             this.groupBox4.Name = "groupBox4";
@@ -93,6 +97,23 @@
             this.groupBox4.TabIndex = 0;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Danh sách sinh viên";
+            // 
+            // txtTimkiemsv
+            // 
+            this.txtTimkiemsv.Location = new System.Drawing.Point(85, 29);
+            this.txtTimkiemsv.Name = "txtTimkiemsv";
+            this.txtTimkiemsv.Size = new System.Drawing.Size(267, 22);
+            this.txtTimkiemsv.TabIndex = 2;
+            this.txtTimkiemsv.TextChanged += new System.EventHandler(this.txtTimkiemsv_TextChanged);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(7, 30);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(68, 17);
+            this.label10.TabIndex = 1;
+            this.label10.Text = "Tìm kiếm:";
             // 
             // dgvSinhVien
             // 
@@ -108,11 +129,11 @@
             this.cDiachi,
             this.cSDT,
             this.cDetai});
-            this.dgvSinhVien.Location = new System.Drawing.Point(10, 29);
+            this.dgvSinhVien.Location = new System.Drawing.Point(10, 57);
             this.dgvSinhVien.Name = "dgvSinhVien";
             this.dgvSinhVien.RowHeadersWidth = 51;
             this.dgvSinhVien.RowTemplate.Height = 24;
-            this.dgvSinhVien.Size = new System.Drawing.Size(1113, 332);
+            this.dgvSinhVien.Size = new System.Drawing.Size(1113, 304);
             this.dgvSinhVien.TabIndex = 0;
             this.dgvSinhVien.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSinhVien_CellClick);
             // 
@@ -420,6 +441,7 @@
             this.Load += new System.EventHandler(this.frmSinhVien_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSinhVien)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
@@ -467,6 +489,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cSDT;
         private System.Windows.Forms.DataGridViewTextBoxColumn cDetai;
         private System.Windows.Forms.ErrorProvider error;
+        private System.Windows.Forms.TextBox txtTimkiemsv;
+        private System.Windows.Forms.Label label10;
     }
 }
 

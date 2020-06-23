@@ -310,7 +310,10 @@ namespace DoanWindow
 
         private void txtTimKiem_TextChanged(object sender, EventArgs e)
         {
-
+            GiaoVienController gvc = new GiaoVienController();
+            DataTable dt = gvc.Searchgv(txtTimKiem.Text);
+            dgvGiangVien.DataSource = dt;
+            dgvGiangVien.Refresh();
         }
     }
 }
