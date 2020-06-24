@@ -31,6 +31,11 @@
             this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.pgbTime = new System.Windows.Forms.ProgressBar();
+            this.txtTimkiemdt = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.dgvDeTai = new System.Windows.Forms.DataGridView();
             this.cIDDetai = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cTenDeTai = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -69,8 +74,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.error = new System.Windows.Forms.ErrorProvider(this.components);
-            this.label10 = new System.Windows.Forms.Label();
-            this.txtTimkiemdt = new System.Windows.Forms.TextBox();
+            this.timerdt = new System.Windows.Forms.Timer(this.components);
             this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDeTai)).BeginInit();
@@ -92,6 +96,9 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.label13);
+            this.groupBox4.Controls.Add(this.label12);
+            this.groupBox4.Controls.Add(this.pgbTime);
             this.groupBox4.Controls.Add(this.txtTimkiemdt);
             this.groupBox4.Controls.Add(this.label10);
             this.groupBox4.Controls.Add(this.dgvDeTai);
@@ -101,6 +108,48 @@
             this.groupBox4.TabIndex = 0;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Danh sách đề tài";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(743, 27);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(33, 17);
+            this.label13.TabIndex = 6;
+            this.label13.Text = "Day";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(432, 27);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(100, 17);
+            this.label12.TabIndex = 4;
+            this.label12.Text = "Thời hạn đề tài:";
+            // 
+            // pgbTime
+            // 
+            this.pgbTime.Location = new System.Drawing.Point(547, 22);
+            this.pgbTime.Name = "pgbTime";
+            this.pgbTime.Size = new System.Drawing.Size(190, 25);
+            this.pgbTime.TabIndex = 3;
+            // 
+            // txtTimkiemdt
+            // 
+            this.txtTimkiemdt.Location = new System.Drawing.Point(92, 22);
+            this.txtTimkiemdt.Name = "txtTimkiemdt";
+            this.txtTimkiemdt.Size = new System.Drawing.Size(296, 25);
+            this.txtTimkiemdt.TabIndex = 2;
+            this.txtTimkiemdt.TextChanged += new System.EventHandler(this.txtTimkiemdt_TextChanged);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(10, 26);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(66, 17);
+            this.label10.TabIndex = 1;
+            this.label10.Text = "Tìm kiếm:";
             // 
             // dgvDeTai
             // 
@@ -446,22 +495,9 @@
             // 
             this.error.ContainerControl = this;
             // 
-            // label10
+            // timerdt
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(10, 26);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(66, 17);
-            this.label10.TabIndex = 1;
-            this.label10.Text = "Tìm kiếm:";
-            // 
-            // txtTimkiemdt
-            // 
-            this.txtTimkiemdt.Location = new System.Drawing.Point(92, 22);
-            this.txtTimkiemdt.Name = "txtTimkiemdt";
-            this.txtTimkiemdt.Size = new System.Drawing.Size(296, 25);
-            this.txtTimkiemdt.TabIndex = 2;
-            this.txtTimkiemdt.TextChanged += new System.EventHandler(this.txtTimkiemdt_TextChanged);
+            this.timerdt.Tick += new System.EventHandler(this.timerdt_Tick);
             // 
             // frmDeTai
             // 
@@ -527,5 +563,9 @@
         private System.Windows.Forms.ErrorProvider error;
         private System.Windows.Forms.TextBox txtTimkiemdt;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.ProgressBar pgbTime;
+        private System.Windows.Forms.Timer timerdt;
+        private System.Windows.Forms.Label label13;
     }
 }

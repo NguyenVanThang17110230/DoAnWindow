@@ -139,7 +139,7 @@ namespace DoanWindow
             }
             else if (b == num)
             {
-                this.error.SetError(cbbIDDetai, "Đề tài này đã đủ số lượng sinh viên đăng ký!!!");
+                this.error.SetError(cbbIDDetai, "Số lần báo cáo đã đủ!!!");
                 return;
             }
             this.error.Clear();
@@ -227,9 +227,9 @@ namespace DoanWindow
                 this.error.SetError(cbbIDDetai, "Hãy nhập mã đề tài cho báo cáo!!!");
                 return;
             }
-            else if (b == num)
+            else if (b == (num+1))
             {
-                this.error.SetError(cbbIDDetai, "Đề tài này đã đủ số lượng sinh viên đăng ký!!!");
+                this.error.SetError(cbbIDDetai, "Đề tài này đã đủ số lần báo cáo!!!");
                 return;
             }
             this.error.Clear();
@@ -274,8 +274,7 @@ namespace DoanWindow
             string IDBC = this.dgvBaocao.CurrentRow.Cells[0].Value.ToString();
             BaoCao bc = sv.BaoCaos.Single(t => t.IDBaoCao.Equals(IDBC));
             bc.IDDeTai = this.cbbIDDetai.SelectedValue.ToString();
-            cbbLanBC.Text = (b + 1).ToString();
-            bc.LanBaoCao = b + 1; //int.Parse(this.cbbLanBC.SelectedItem.ToString());
+            bc.LanBaoCao = int.Parse(this.cbbLanBC.SelectedItem.ToString());
             bc.TaiLieu = this.txtTailieu.Text.Trim();
             bc.NhanXet = this.txtNhanxet.Text.Trim();
             if (this.txtDiem.Text == "")

@@ -106,7 +106,7 @@ namespace DoanWindow
             txtSoLuongSV.Text = row.Cells[5].Value.ToString();
             dtpBD.Value = (DateTime)row.Cells[6].Value;
             dtpBD.Value = (DateTime)row.Cells[7].Value;
-            txtSolanBC.Text = row.Cells[8].Value.ToString();            
+            txtSolanBC.Text = row.Cells[8].Value.ToString();
             try
             {
                 if ((bool)row.Cells[9].Value == false)
@@ -117,6 +117,9 @@ namespace DoanWindow
             }
             catch
             { }
+            timerdt.Start();
+            this.pgbTime.Value = 0;
+            this.label13.Text = "Day";
         }
 
         private void btnAddDeTai_Click(object sender, EventArgs e)
@@ -163,14 +166,14 @@ namespace DoanWindow
                 return;
             }
             this.error.Clear();
-            DateTime now = DateTime.Now;            
+            DateTime now = DateTime.Now;
             if (dtpBD.Value < now)
             {
                 this.error.SetError(dtpBD, "Ngày bắt đầu không thể nhỏ hơn thời điểm hiện tại!!!");
                 return;
             }
             this.error.Clear();
-            if (dtpKT.Value<dtpBD.Value)
+            if (dtpKT.Value < dtpBD.Value)
             {
                 this.error.SetError(dtpKT, "Ngày kết thúc không thể nhỏ hơn thời điểm bắt đầu!!!");
                 return;
@@ -213,6 +216,7 @@ namespace DoanWindow
             }
             Load_data();
             clean();
+
         }
 
         private void btnNewDeTai_Click(object sender, EventArgs e)
@@ -275,6 +279,35 @@ namespace DoanWindow
             DataTable dt = dtc.Searchsv(txtTimkiemdt.Text);
             dgvDeTai.DataSource = dt;
             dgvDeTai.Refresh();
+        }
+
+        private void timerdt_Tick(object sender, EventArgs e)
+        {
+            DateTime dnow = DateTime.Now;
+            if (this.dgvDeTai.Rows.Count > 0 && dnow < DateTime.Parse(this.dgvDeTai.CurrentRow.Cells[7].Value.ToString()))
+            {
+                TimeSpan ts = DateTime.Parse(this.dgvDeTai.CurrentRow.Cells[7].Value.ToString()) - dnow;
+
+                if (this.label13.Text == "Day")
+                {
+                    int temp1 = int.Parse(Math.Round(ts.TotalDays).ToString());
+                    if (temp1 <= 100)
+                    {
+                        pgbTime.Value += (100 - temp1);
+                        timerdt.Stop();
+                    }
+                    else
+                    {
+                        pgbTime.Value = 100;
+                        timerdt.Stop();
+                    }
+                }
+            }
+            else
+            {
+                pgbTime.Value = 100;
+                timerdt.Stop();
+            }
         }
     }
 }
