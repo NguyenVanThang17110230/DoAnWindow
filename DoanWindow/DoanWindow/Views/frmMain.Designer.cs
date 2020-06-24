@@ -37,6 +37,7 @@
             this.tiendoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dangxuatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabMain = new System.Windows.Forms.TabControl();
+            this.xemdiemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -45,6 +46,7 @@
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.quảnLýToolStripMenuItem,
+            this.xemdiemToolStripMenuItem,
             this.dangxuatToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -108,6 +110,13 @@
             this.tabMain.TabIndex = 5;
             this.tabMain.SelectedIndexChanged += new System.EventHandler(this.tabMain_SelectedIndexChanged);
             // 
+            // xemdiemToolStripMenuItem
+            // 
+            this.xemdiemToolStripMenuItem.Name = "xemdiemToolStripMenuItem";
+            this.xemdiemToolStripMenuItem.Size = new System.Drawing.Size(91, 24);
+            this.xemdiemToolStripMenuItem.Text = "Xem điểm";
+            this.xemdiemToolStripMenuItem.Click += new System.EventHandler(this.xemdiemToolStripMenuItem_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -138,6 +147,7 @@
         private System.Windows.Forms.ToolStripMenuItem tiendoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dangxuatToolStripMenuItem;
         private System.Windows.Forms.TabControl tabMain;
+        private System.Windows.Forms.ToolStripMenuItem xemdiemToolStripMenuItem;
     }
 }
 

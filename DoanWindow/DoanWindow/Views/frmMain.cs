@@ -16,6 +16,7 @@ namespace DoanWindow.Views
         frmDeTai formdetai;
         frmSinhVien formsinhvien;
         frmGiangVien formgiangvien;
+        frmDiem formdiem;
         string Quyen = "";
         public frmMain(string Quyen)
         {
@@ -143,6 +144,20 @@ namespace DoanWindow.Views
                 Form lg = new frmLogin();
                 lg.ShowDialog();
                 this.Close();
+            }
+        }
+
+        private void xemdiemToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (this.formdiem is null || this.formdiem.IsDisposed)
+            {
+                this.formdiem = new frmDiem();
+                formdiem.MdiParent = this;
+                this.formdiem.Show();
+            }
+            else
+            {
+                this.formdiem.Select();
             }
         }
     }
