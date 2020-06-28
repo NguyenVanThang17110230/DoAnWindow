@@ -39,8 +39,8 @@
             this.cTrangthai = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cDiemtong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.txtTimkiem = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDiem)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -132,6 +132,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin điểm số của sinh viên";
             // 
+            // txtTimkiem
+            // 
+            this.txtTimkiem.Location = new System.Drawing.Point(83, 30);
+            this.txtTimkiem.Name = "txtTimkiem";
+            this.txtTimkiem.Size = new System.Drawing.Size(330, 22);
+            this.txtTimkiem.TabIndex = 2;
+            this.txtTimkiem.TextChanged += new System.EventHandler(this.txtTimkiem_TextChanged);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -141,14 +149,6 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Tìm kiếm:";
             // 
-            // txtTimkiem
-            // 
-            this.txtTimkiem.Location = new System.Drawing.Point(83, 30);
-            this.txtTimkiem.Name = "txtTimkiem";
-            this.txtTimkiem.Size = new System.Drawing.Size(330, 22);
-            this.txtTimkiem.TabIndex = 2;
-            this.txtTimkiem.TextChanged += new System.EventHandler(this.txtTimkiem_TextChanged);
-            // 
             // frmDiem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -156,7 +156,7 @@
             this.ClientSize = new System.Drawing.Size(1544, 644);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmDiem";
-            this.Text = "frmDiem";
+            this.Text = "Bảng điểm";
             this.Load += new System.EventHandler(this.frmDiem_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDiem)).EndInit();
             this.groupBox1.ResumeLayout(false);

@@ -105,7 +105,7 @@ namespace DoanWindow
             txtMoTa.Text = row.Cells[4].Value.ToString();
             txtSoLuongSV.Text = row.Cells[5].Value.ToString();
             dtpBD.Value = (DateTime)row.Cells[6].Value;
-            dtpBD.Value = (DateTime)row.Cells[7].Value;
+            dtpKT.Value = (DateTime)row.Cells[7].Value;
             txtSolanBC.Text = row.Cells[8].Value.ToString();
             try
             {
@@ -227,6 +227,62 @@ namespace DoanWindow
 
         private void btnUpdateDeTai_Click(object sender, EventArgs e)
         {
+
+            if (txtTenDeTai.Text.Trim().Length <= 0)
+            {
+                this.error.SetError(txtTenDeTai, "Hãy nhập tên của đề tài!!!");
+                return;
+            }
+            this.error.Clear();
+            if (cbbLoaiDeTai.Text.Trim().Length <= 0)
+            {
+                this.error.SetError(cbbLoaiDeTai, "Hãy nhập loại đề tài!!!");
+                return;
+            }
+            this.error.Clear();
+            if (cbbGVHD.Text.Trim().Length <= 0)
+            {
+                this.error.SetError(cbbGVHD, "Hãy nhập giảng viên hướng dẫn cho đề tài!!!");
+                return;
+            }
+            this.error.Clear();
+            if (txtMoTa.Text.Trim().Length <= 0)
+            {
+                this.error.SetError(txtMoTa, "Hãy nhập mô tả cho đề tài!!!");
+                return;
+            }
+            this.error.Clear();
+            if (txtSoLuongSV.Text.Trim().Length <= 0)
+            {
+                this.error.SetError(txtSoLuongSV, "Hãy nhập số lượng sinh viên thực hiện đề tài!!!");
+                return;
+            }
+            this.error.Clear();
+            DateTime now = DateTime.Now;
+            if (dtpBD.Value < now)
+            {
+                this.error.SetError(dtpBD, "Ngày bắt đầu không thể nhỏ hơn thời điểm hiện tại!!!");
+                return;
+            }
+            this.error.Clear();
+            if (dtpKT.Value < dtpBD.Value)
+            {
+                this.error.SetError(dtpKT, "Ngày kết thúc không thể nhỏ hơn thời điểm bắt đầu!!!");
+                return;
+            }
+            this.error.Clear();
+            if (txtSolanBC.Text.Trim().Length <= 0)
+            {
+                this.error.SetError(txtSolanBC, "Hãy nhập số lần báo cáo tiến độ đề tài!!!");
+                return;
+            }
+            this.error.Clear();
+            if (rbBD.Checked == false && rbKT.Checked == false)
+            {
+                this.error.SetError(rbKT, "Vui lòng chọn tình trạng của đề tài!!!!");
+                return;
+            }
+            this.error.Clear();
             string IDDT = this.dgvDeTai.CurrentRow.Cells[0].Value.ToString();
             DeTai dt = sv.DeTais.Single(t => t.ID.Equals(IDDT));
             dt.TenDeTai = this.txtTenDeTai.Text.Trim();

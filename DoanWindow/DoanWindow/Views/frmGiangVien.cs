@@ -238,7 +238,7 @@ namespace DoanWindow
             else gv.GioiTinh = false;
             gv.NgaySinh = this.dtpNgaySinhGV.Value.Date;
             gv.ChucVu = this.txtChucVu.Text.Trim();
-            gv.Khoa = this.cbbKhoa.Text.Trim();
+            gv.Khoa = this.cbbKhoa.SelectedValue.ToString();
             gv.DiaChi = this.txtDiaChi.Text.Trim();
             gv.Sdt = this.txtSDT.Text.Trim();
             if (GiaoVienController.updategiangvien(gv) == false)
